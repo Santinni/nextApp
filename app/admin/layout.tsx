@@ -9,7 +9,7 @@ const AdminLayout = (props: AdminLayoutProps) => {
   return (
     <div className="flex">
       <aside className="bg-slate-200 p-5 mr-5">Admin sidebar</aside>
-      <main>{children}</main>
+      <div>{children}</div>
     </div>
   );
 };
