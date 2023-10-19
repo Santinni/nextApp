@@ -13,14 +13,13 @@ const UserTable = async ({ sortOrder }: UserTableProps) => {
   });
   const users: UserProps[] = await res.json();
 
-  // Mapování sortOrder na klíče řazení
   const sortKeyMap: { [key: string]: keyof UserProps } = {
     username: "username",
     name: "name",
     email: "email",
   };
 
-  const sortKey = sortKeyMap[sortOrder] || "name"; // Default na "name", pokud sortOrder není rozpoznán
+  const sortKey = sortKeyMap[sortOrder] || "name";
 
   const sortedUsers = sort(users).asc((user) => user[sortKey]);
 
