@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+
+  --primary-color: #164181;
+  --secondary-color: #febe26;
+  --white: #fff;
+  --black: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+
+    --primary-color: #164181;
+    --secondary-color: #febe26;
+    --white: #fff;
+    --black: #000;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  padding: 16px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.navItem {
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: var(--primary-color);
+  background-color: var(--white);
+  border: 1px solid var(--primary-color);
+  transition: background-color 0.3s;
+}
+
+.navItem:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  color: var(--black);
+}
