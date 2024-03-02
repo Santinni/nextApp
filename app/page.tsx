@@ -1,12 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
-import ProductCard from "./components/ProductCard/ProductCard";
+import ProductCard from "./components/ProductCard";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Home</h1>
+    <main>
+      <h1>Home page</h1>
       <ProductCard />
-    </div>
+    </main>
   );
 }

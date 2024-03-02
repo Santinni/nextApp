@@ -1,6 +1,8 @@
 import React, { Suspense } from "react";
-import UserTable from "../components/table/UserTable";
+
 import Link from "next/link";
+
+import UserTable from "../components/table/UserTable";
 import Loading from "../loading";
 
 interface UsersPageProps {
