@@ -8,9 +8,6 @@ interface Props {
 }
 
 export function GET(request: NextRequest, props: Props) {
-  //   return NextResponse.json({
-  //     message: "Hello World",
-  //   });
   const { id } = props.params;
   if (id > 10)
     return NextResponse.json(
@@ -19,12 +16,15 @@ export function GET(request: NextRequest, props: Props) {
       },
       { status: 404 }
     );
-  return NextResponse.json({
-    id,
-    name: "John Doe",
-    username: "johndoe",
-    email: "email",
-  });
+  return NextResponse.json(
+    {
+      id,
+      name: "John Doe",
+      username: "johndoe",
+      email: "email",
+    },
+    { status: 200 }
+  );
 }
 
 export async function PUT(request: NextRequest, props: Props) {
