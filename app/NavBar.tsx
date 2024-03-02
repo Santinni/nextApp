@@ -1,5 +1,4 @@
-import Link from "next/link";
-import React from "react";
+import Link from "next/link"
 
 const NavBAr = () => {
   return (
@@ -17,7 +16,7 @@ const NavBAr = () => {
         Admin
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default NavBAr;
+export default NavBAr

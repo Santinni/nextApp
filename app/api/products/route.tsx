@@ -1,5 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
-import schema from "./schema";
+import { NextRequest, NextResponse } from "next/server"
+
+import schema from "./schema"
 
 export function GET(request: NextRequest) {
   //fetch products from db
@@ -21,28 +22,28 @@ export function GET(request: NextRequest) {
       },
     ],
     { status: 200 }
-  );
+  )
 }
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
-  const body = await request.json();
-  const validation = schema.safeParse(body);
+  const body = await request.json()
+  const validation = schema.safeParse(body)
   if (!validation.success)
-    return NextResponse.json(validation.error.errors, { status: 400 });
+    return NextResponse.json(validation.error.errors, { status: 400 })
 
-  return NextResponse.json({ id: 10, ...body }, { status: 201 });
+  return NextResponse.json({ id: 10, ...body }, { status: 201 })
 }
 
 export async function PUT(request: NextRequest): Promise<NextResponse> {
-  const body = await request.json();
-  const validation = schema.safeParse(body);
+  const body = await request.json()
+  const validation = schema.safeParse(body)
   if (!validation.success)
-    return NextResponse.json(validation.error.errors, { status: 400 });
+    return NextResponse.json(validation.error.errors, { status: 400 })
 
-  return NextResponse.json({ id: 10, ...body });
+  return NextResponse.json({ id: 10, ...body })
 }
 
 //DeLETe
 export async function DELETE(request: NextRequest): Promise<NextResponse> {
-  return NextResponse.json({ message: "Product deleted" });
+  return NextResponse.json({ message: "Product deleted" })
 }

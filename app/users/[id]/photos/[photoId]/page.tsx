@@ -1,10 +1,8 @@
-import React from "react";
-
 interface PhotoPageProps {
   params: {
-    id: number;
-    photoId: number;
-  };
+    id: number
+    photoId: number
+  }
 }
 
 const PhotoPage = ({ params: { id, photoId } }: PhotoPageProps) => {
@@ -14,7 +12,7 @@ const PhotoPage = ({ params: { id, photoId } }: PhotoPageProps) => {
       <p>UserID: {id}</p>
       <p>PhotoID: {photoId}</p>
     </>
-  );
-};
+  )
+}
 
-export default PhotoPage;
+export default PhotoPage

@@ -1,5 +1,3 @@
-import React from "react";
-
 const NotFoundPage = () => {
   return (
     <div className="flex flex-col justify-center w-full">
@@ -10,7 +8,7 @@ const NotFoundPage = () => {
         Please check the URL in the address bar and try again.
       </p>
     </div>
-  );
-};
+  )
+}
 
-export default NotFoundPage;
+export default NotFoundPage

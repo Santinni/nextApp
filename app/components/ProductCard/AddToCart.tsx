@@ -1,5 +1,4 @@
-"use client";
-import React from "react";
+"use client"
 
 const AddToCart = () => {
   return (
@@ -9,7 +8,7 @@ const AddToCart = () => {
     >
       Add to cart
     </button>
-  );
-};
+  )
+}
 
-export default AddToCart;
+export default AddToCart

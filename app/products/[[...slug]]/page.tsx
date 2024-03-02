@@ -1,12 +1,10 @@
-import React from "react";
-
 interface ProductPageProps {
   params: {
-    slug: string[];
-  };
+    slug: string[]
+  }
   searchParams: {
-    sortOrder: string;
-  };
+    sortOrder: string
+  }
 }
 
 const ProductPage = ({
@@ -17,7 +15,7 @@ const ProductPage = ({
     <div>
       ProductPage: {slug ? slug.join(", ") : "No products"} {sortOrder}
     </div>
-  );
-};
+  )
+}
 
-export default ProductPage;
+export default ProductPage

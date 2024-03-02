@@ -1,12 +1,12 @@
-'use client'
+"use client"
 
-import AddToCartButton from './AddToCartButton';
-import styles from './styles.module.css';
+import AddToCartButton from "./AddToCartButton"
+import styles from "./styles.module.css"
 
 const ProductCard = () => {
   return (
     <div className={styles.card}>
-        <AddToCartButton/>
+      <AddToCartButton />
     </div>
   )
 }

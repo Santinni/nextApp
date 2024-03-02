@@ -1,14 +1,14 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react"
 
-import Link from "next/link";
+import Link from "next/link"
 
-import UserTable from "../components/table/UserTable";
-import Loading from "../loading";
+import UserTable from "../components/table/UserTable"
+import Loading from "../loading"
 
 interface UsersPageProps {
   searchParams: {
-    sortOrder: string;
-  };
+    sortOrder: string
+  }
 }
 
 const UsersPage = ({ searchParams: { sortOrder } }: UsersPageProps) => {
@@ -22,7 +22,7 @@ const UsersPage = ({ searchParams: { sortOrder } }: UsersPageProps) => {
         <UserTable sortOrder={sortOrder} />
       </Suspense>
     </>
-  );
-};
+  )
+}
 
-export default UsersPage;
+export default UsersPage

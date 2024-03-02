@@ -1,10 +1,9 @@
-"use client";
-import React from "react";
+"use client"
 
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"
 
 const NewUserPage = () => {
-  const router = useRouter();
+  const router = useRouter()
   return (
     <>
       <h1>New User</h1>
@@ -27,7 +26,7 @@ const NewUserPage = () => {
         Create
       </button>
     </>
-  );
-};
+  )
+}
 
-export default NewUserPage;
+export default NewUserPage

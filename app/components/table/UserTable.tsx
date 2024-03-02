@@ -1,27 +1,27 @@
-import React from "react";
-import { UserProps } from "../../interfaces";
-import Link from "next/link";
-import { sort } from "fast-sort";
+import { sort } from "fast-sort"
+import Link from "next/link"
+
+import { UserProps } from "../../interfaces"
 
 interface UserTableProps {
-  sortOrder: string;
+  sortOrder: string
 }
 
 const UserTable = async ({ sortOrder }: UserTableProps) => {
   const res = await fetch("https://jsonplaceholder.typicode.com/users", {
     cache: "no-store",
-  });
-  const users: UserProps[] = await res.json();
+  })
+  const users: UserProps[] = await res.json()
 
   const sortKeyMap: { [key: string]: keyof UserProps } = {
     username: "username",
     name: "name",
     email: "email",
-  };
+  }
 
-  const sortKey = sortKeyMap[sortOrder] || "name";
+  const sortKey = sortKeyMap[sortOrder] || "name"
 
-  const sortedUsers = sort(users).asc((user) => user[sortKey]);
+  const sortedUsers = sort(users).asc((user) => user[sortKey])
 
   return (
     <table className="table table-bordered">
@@ -52,7 +52,7 @@ const UserTable = async ({ sortOrder }: UserTableProps) => {
         ))}
       </tbody>
     </table>
-  );
-};
+  )
+}
 
-export default UserTable;
+export default UserTable
