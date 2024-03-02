@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation"
 
+import { Button } from "@/app/components"
+
 const NewUserPage = () => {
   const router = useRouter()
   return (
@@ -14,17 +16,17 @@ const NewUserPage = () => {
         <input id="email" type="email" />
         <label htmlFor="password">Password</label>
         <input id="password" type="password" />
-        <button
+        <Button
           className="btn btn-primary"
           type="submit"
           onClick={() => router.push("/users")}
         >
           Create
-        </button>
+        </Button>
       </form> */}
-      <button className="btn btn-primary" onClick={() => router.push("/users")}>
+      <Button className="btn btn-primary" onClick={() => router.push("/users")}>
         Create
-      </button>
+      </Button>
     </>
   )
 }
