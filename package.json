@@ -6,7 +6,11 @@
     "dev": "next dev -p 3030",
     "build": "next build",
     "start": "next start -p 3030",
-    "lint": "next lint"
+    "lint": "next lint",
+    "icons:list": "node scripts/listfiles.js ./src/assets/icons \"**/*.svg;!**/leftovers\" files.json",
+    "icons:convert": "svgr --typescript --icon --replace-attr-values \"#393939=currentColor, #ACAEB0=currentColor\" -d src/components/icons src/assets/icons",
+    "posticons:convert": "node scripts/listfiles.js ./src/components/icons \"**/*.tsx\" files.json",
+    "icons:generate": "npm run icons:list && npm run icons:convert"
   },
   "dependencies": {
     "@types/node": "20.11.24",
@@ -27,6 +31,8 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "daisyui": "^3.9.2"
+    "daisyui": "^3.9.2",
+    "globby": "^11.0.3",
+    "@svgr/cli": "^8.1.0"
   }
 }

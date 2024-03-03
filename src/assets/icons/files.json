@@ -1,0 +1,13 @@
+{
+  "directory": "./src/assets/icons",
+  "pattern": [
+    "**/*.svg",
+    "!**/leftovers"
+  ],
+  "files": [
+    "chevron/chevron-down.svg",
+    "chevron/chevron-left.svg",
+    "chevron/chevron-right.svg",
+    "chevron/chevron-up.svg"
+  ]
+}
