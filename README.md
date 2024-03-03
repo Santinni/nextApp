@@ -32,3 +32,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Icons
+
+In order to import icons from Figma, follow, these steps:
+
+(use `yarn` or `npm run` as you prefer, but `npm` is recommended for this project)
+
+1. Select all icons in Figma and export them as SVG
+2. Extract all files to `src/assets/icons`
+3. Run `yarn icons:list` - this will generate list of all svg files into `src/assets/icons/files.json`
+4. Run `yarn icons:convert` - this will convert all SVGs from `src/assets/icons` as icons with color and size based on CSS `color` and `font-size` into `src/components/icons`. It will also list all icons into `src/components/icons/files.json`
+5. You might need to run `yarn lint --fix` in order to fix lint issues in the generated files
+
+Alternatively, you can perform steps 3 and 4 in one go by running:
+
+```bash
+yarn icons:generate
+```
+
+All files listed in `src/components/icons/files.json` will be automatically displayed in the `assets/icons` story.

@@ -1,0 +1,12 @@
+{
+  "directory": "./src/components/icons",
+  "pattern": [
+    "**/*.tsx"
+  ],
+  "files": [
+    "chevron/ChevronDown.tsx",
+    "chevron/ChevronLeft.tsx",
+    "chevron/ChevronRight.tsx",
+    "chevron/ChevronUp.tsx"
+  ]
+}
