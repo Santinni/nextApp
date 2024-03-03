@@ -37,7 +37,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 In order to import icons from Figma, follow, these steps:
 
-(use `yarn` or `npm run` as you prefer, but `npm` is recommended for this project)
+(use `yarn` or `npm run` as you prefer)
 
 1. Select all icons in Figma and export them as SVG
 2. Extract all files to `src/assets/icons`
@@ -50,5 +50,3 @@ Alternatively, you can perform steps 3 and 4 in one go by running:
 ```bash
 yarn icons:generate
 ```
-
-All files listed in `src/components/icons/files.json` will be automatically displayed in the `assets/icons` story.
