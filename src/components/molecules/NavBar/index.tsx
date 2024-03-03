@@ -1,21 +1,39 @@
-import Link from "next/link"
+"use client"
 
-const NavBar = () => {
+import { FC } from "react"
+
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+
+export interface NavBarProps {
+  navLinks: {
+    href: string
+    label: string
+  }[]
+  orientation?: "horizontal" | "vertical"
+}
+
+const NavBar: FC<NavBarProps> = ({ navLinks }) => {
+  const pathname = usePathname()
+
   return (
-    <div className="flex bg-slate-200 p-5">
-      <Link href="/" className="mr-5">
-        Home
-      </Link>
-      <Link href="/users" className="mr-5">
-        Users
-      </Link>
-      <Link href="/products" className="mr-5">
-        Products
-      </Link>
-      <Link href="/admin" className="mr-5">
-        Admin
-      </Link>
-    </div>
+    <nav aria-label="Main" className="flex bg-slate-200 p-5">
+      {navLinks.map((navLink) => {
+        const isActive =
+          navLink.href === "/"
+            ? pathname === navLink.href
+            : pathname.startsWith(navLink.href)
+        return (
+          <Link
+            key={navLink.href}
+            href={navLink.href}
+            className={isActive ? "font-bold mr-5" : "mr-5"}
+          >
+            {navLink.label}
+          </Link>
+        )
+      })}
+    </nav>
   )
 }
 

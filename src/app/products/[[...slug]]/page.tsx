@@ -7,10 +7,11 @@ interface ProductPageProps {
   }
 }
 
-const ProductPage = ({
-  params: { slug },
-  searchParams: { sortOrder },
-}: ProductPageProps) => {
+const ProductPage = (props: ProductPageProps) => {
+  const {
+    params: { slug },
+    searchParams: { sortOrder },
+  } = props
   return (
     <div>
       ProductPage: {slug ? slug.join(", ") : "No products"} {sortOrder}

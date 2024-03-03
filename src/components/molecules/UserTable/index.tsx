@@ -7,7 +7,8 @@ interface UserTableProps {
   sortOrder: string
 }
 
-const UserTable = async ({ sortOrder }: UserTableProps) => {
+const UserTable = async (props: UserTableProps) => {
+  const { sortOrder } = props
   const res = await fetch("https://jsonplaceholder.typicode.com/users", {
     cache: "no-store",
   })
@@ -24,7 +25,7 @@ const UserTable = async ({ sortOrder }: UserTableProps) => {
   const sortedUsers = sort(users).asc((user) => user[sortKey])
 
   return (
-    <table className="table table-bordered">
+    <table className="table">
       <thead>
         <tr>
           <th>
