@@ -2,7 +2,7 @@ import { Suspense } from "react"
 
 import Link from "next/link"
 
-import { Loading, UserTable } from "@/app/components"
+import { Loading, UserTable } from "@/src/components"
 
 interface UsersPageProps {
   searchParams: {
