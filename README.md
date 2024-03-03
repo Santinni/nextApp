@@ -48,7 +48,7 @@ Stay tuned for updates on the integration of the UI library and Storybook in thi
 
 ## Contributing
 
-We welcome contributions to NextApp. If you have suggestions for improvements or bug fixes, please feel free to fork the repository, make changes, and submit a pull request to the `develop` branch. For more information, please read through our [contribution guidelines](https://github.com/Santinni/nextApp/tree/develop/CONTRIBUTING.md).
+We welcome contributions to NextApp. If you have suggestions for improvements or bug fixes, please feel free to fork the repository, make changes, and submit a pull request to the `develop` branch. For more information, please read through our [contribution guidelines](https://github.com/Santinni/nextApp/tree/main/CONTRIBUTING.md).
 
 ## Learn More
 
