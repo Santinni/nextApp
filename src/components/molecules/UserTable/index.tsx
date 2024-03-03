@@ -1,7 +1,7 @@
 import { sort } from "fast-sort"
 import Link from "next/link"
 
-import { UserProps } from "@/app/interfaces"
+import { UserProps } from "@/src/interfaces"
 
 interface UserTableProps {
   sortOrder: string

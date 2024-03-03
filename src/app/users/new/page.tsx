@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation"
 
-import { Button } from "@/app/components"
+import { Button } from "@/src/components"
 
 const NewUserPage = () => {
   const router = useRouter()
