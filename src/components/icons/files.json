@@ -4,6 +4,7 @@
     "**/*.tsx"
   ],
   "files": [
+    "Close.tsx",
     "chevron/ChevronDown.tsx",
     "chevron/ChevronLeft.tsx",
     "chevron/ChevronRight.tsx",
