@@ -41,8 +41,8 @@ In order to import icons from Figma, follow, these steps:
 
 1. Select all icons in Figma and export them as SVG
 2. Extract all files to `src/assets/icons`
-3. Run `yarn icons:list` - this will generate list of all svg files into `src/assets/images/files.json`
-4. Run `yarn icons:convert` - this will convert all SVGs from `src/assets/images/icons` as icons with color and size based on CSS `color` and `font-size` into `src/components/icons`. It will also list all icons into `src/components/icons/files.json`
+3. Run `yarn icons:list` - this will generate list of all svg files into `src/assets/icons/files.json`
+4. Run `yarn icons:convert` - this will convert all SVGs from `src/assets/icons` as icons with color and size based on CSS `color` and `font-size` into `src/components/icons`. It will also list all icons into `src/components/icons/files.json`
 5. You might need to run `yarn lint --fix` in order to fix lint issues in the generated files
 
 Alternatively, you can perform steps 3 and 4 in one go by running:
