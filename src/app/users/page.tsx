@@ -10,11 +10,7 @@ interface UsersPageProps {
   }
 }
 
-const UsersPage = (props: UsersPageProps) => {
-  const {
-    searchParams: { sortOrder },
-  } = props
-
+const UsersPage = ({ searchParams: { sortOrder } }: UsersPageProps) => {
   return (
     <>
       <h1>Users</h1>
