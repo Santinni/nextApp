@@ -1,5 +1,7 @@
 import "./globals.css"
 
+import { ReactNode } from "react"
+
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 
@@ -19,11 +21,7 @@ const navLinks = [
   { href: "/admin", label: "Admin" },
 ]
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-theme="winter">
       <body className={inter.className}>
