@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-theme="winter">
       <body className={inter.className}>
-        <NavBar navLinks={navLinks} />
+        <NavBar navLinks={navLinks} ariaLabel="Main" />
         <main className="p-5"> {children}</main>
       </body>
     </html>

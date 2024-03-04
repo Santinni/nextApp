@@ -2,6 +2,7 @@
 
 import { FC } from "react"
 
+import clsx from "clsx"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -10,14 +11,18 @@ export interface NavBarProps {
     href: string
     label: string
   }[]
-  orientation?: "horizontal" | "vertical"
+  isVertical?: boolean
+  ariaLabel: string
 }
 
-const NavBar: FC<NavBarProps> = ({ navLinks }) => {
+const NavBar: FC<NavBarProps> = ({ navLinks, isVertical, ariaLabel }) => {
   const pathname = usePathname()
 
   return (
-    <nav aria-label="Main" className="flex bg-slate-200 p-5">
+    <nav
+      aria-label={ariaLabel}
+      className={clsx("flex bg-slate-200 p-5 gap-5", isVertical && "flex-col")}
+    >
       {navLinks.map((navLink) => {
         const isActive =
           navLink.href === "/"
@@ -27,7 +32,7 @@ const NavBar: FC<NavBarProps> = ({ navLinks }) => {
           <Link
             key={navLink.href}
             href={navLink.href}
-            className={isActive ? "font-bold mr-5" : "mr-5"}
+            className={isActive ? "font-bold" : undefined}
           >
             {navLink.label}
           </Link>
