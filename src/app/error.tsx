@@ -12,6 +12,7 @@ const ErrorPage = (props: ErrorPageProps) => {
     "color: red; font-size: 18px; font-weight: bold;",
     error
   )
+
   return (
     <div className="flex flex-col w-full">
       <h1 className="text-center">Error</h1>
