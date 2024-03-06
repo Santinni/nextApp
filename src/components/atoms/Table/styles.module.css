@@ -1,0 +1,93 @@
+.tableContainer {
+    margin: auto;
+    overflow-x: auto;
+    position: relative;
+}
+
+.root {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-family: fira sans,
+        sans-serif;
+}
+
+.tableHeader {
+    background-color: #f4f4f4;
+}
+
+/* .headerRow {} */
+
+.headerCell {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.headerCellContent {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .5rem;
+
+}
+
+/* .sortable {
+    cursor: pointer;
+}
+
+.sortIcon {
+    min-width: 16px;
+}
+
+.sortIcon::before {
+    color: #000;
+}
+
+.sortIcon.desc::before {
+    content: " \2193";
+}
+
+.sortIcon.asc::before {
+    content: " \2191";
+} */
+
+.tableBody {
+    width: 100%;
+}
+
+.bodyRow {
+    width: 100%;
+}
+
+.evenRow {
+    background-color: #f9f9f9;
+}
+
+.oddRow {
+    background-color: #ffffff;
+}
+
+.bodyCell {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-family: "fira sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    height: auto;
+    line-height: 20px;
+    overflow-wrap: break-word;
+    white-space: normal;
+    hyphens: auto;
+}
+
+@media all and (max-width: 768px) {
+    .headerCell,
+    .bodyCell {
+        padding: 5px;
+    }
+}
