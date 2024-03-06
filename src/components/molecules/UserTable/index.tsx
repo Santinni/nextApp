@@ -1,6 +1,8 @@
 import { sort } from "fast-sort"
 import Link from "next/link"
 
+import type { Column } from "@/src/components/atoms/Table"
+import Table from "@/src/components/atoms/Table"
 import { UserProps } from "@/src/interfaces"
 
 interface UserTableProps {
@@ -9,51 +11,55 @@ interface UserTableProps {
 
 const UserTable = async (props: UserTableProps) => {
   const { sortOrder } = props
+
   const res = await fetch("https://jsonplaceholder.typicode.com/users", {
     cache: "no-store",
   })
-  const users: UserProps[] = await res.json()
-
+  const data: UserProps[] = await res.json()
   const sortKeyMap: { [key: string]: keyof UserProps } = {
     username: "username",
     name: "name",
     email: "email",
   }
-
   const sortKey = sortKeyMap[sortOrder] || "name"
+  const sortedUsers = sort(data).asc((user) => user[sortKey])
 
-  const sortedUsers = sort(users).asc((user) => user[sortKey])
+  const columns: Column<UserProps>[] = [
+    {
+      title: "Username",
+      dataIndex: "username",
+      key: "username",
+      renderHeader: () => (
+        <Link href="/users?sortOrder=username">Username</Link>
+      ),
+    },
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+      renderHeader: () => <Link href="/users?sortOrder=name">Name</Link>,
+    },
+    {
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+      renderHeader: () => <Link href="/users?sortOrder=email">Email</Link>,
+    },
+    {
+      title: "Address",
+      dataIndex: "address",
+      key: "address",
+      render: (value, record) =>
+        `${record.address.street}, ${record.address.city}`,
+    },
+    {
+      title: "Phone",
+      dataIndex: "phone",
+      key: "phone",
+    },
+  ]
 
-  return (
-    <table className="table">
-      <thead>
-        <tr>
-          <th>
-            <Link href="/users?sortOrder=username">Username</Link>
-          </th>
-          <th>
-            <Link href="/users?sortOrder=name">Name</Link>
-          </th>
-          <th>
-            <Link href="/users?sortOrder=email">Email</Link>
-          </th>
-          <th>Address</th>
-          <th>Phone</th>
-        </tr>
-      </thead>
-      <tbody>
-        {sortedUsers.map((user) => (
-          <tr key={user.id}>
-            <td>{user.username}</td>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-            <td>{`${user.address.street}, ${user.address.city}`}</td>
-            <td>{user.phone}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  )
+  return <Table<UserProps> columns={columns} data={sortedUsers} />
 }
 
 export default UserTable

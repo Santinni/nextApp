@@ -1,14 +1,8 @@
-'use client'
 import { ReactNode } from "react"
 
 import clsx from "clsx"
 
-import Pagination from "./Pagination"
 import styles from "./styles.module.css"
-
-export interface Pagination {
-  total: number
-}
 
 export interface Column<T extends {}> {
   title: string
@@ -17,8 +11,6 @@ export interface Column<T extends {}> {
   colWidth?: string
   minWidth?: string
   maxWidth?: string
-  sortable?: boolean
-  initialSortDirection?: "asc" | "desc"
   columnClass?: string
   render?: (value: T[keyof T], record: T, index: number) => ReactNode
   renderHeader?: (title: string) => ReactNode
@@ -28,44 +20,9 @@ export interface TableProps<T extends {}> {
   columns: Column<T>[]
   data: T[]
   rowHeight?: string
-  pagination?: Pagination
-  rowsPerPageOptions?: number[]
-  onChangePage?: (page: number) => void
-  onChangeSort?: (sort: string, direction: "asc" | "desc") => void
-  onChangeItemsPerPage?: (itemsPerPage: number) => void
 }
 
-const Table = <T extends {}>({
-  columns,
-  data,
-  rowHeight,
-  pagination,
-  rowsPerPageOptions = [10, 20, 50],
-  onChangePage = () => void 0,
-  onChangeSort = () => void 0,
-  onChangeItemsPerPage = () => void 0,
-}: TableProps<T>) => {
-  
-
-  const initialSortColumn = columns.find(
-    (col) => col.initialSortDirection != null
-  )
-  // const [sortConfig, setSortConfig] = useState<{
-  //   dataIndex?: string | null
-  //   direction?: "asc" | "desc" | null
-  // }>({
-  //   dataIndex: initialSortColumn ? initialSortColumn.dataIndex : null,
-  //   direction: initialSortColumn
-  //     ? initialSortColumn.initialSortDirection
-  //     : null,
-  // })
-
-  const activeColumns = columns.filter((column) =>
-    data.some((row) => row[column.dataIndex])
-  )
-
-  
-
+const Table = <T extends {}>({ columns, data, rowHeight }: TableProps<T>) => {
   const tableRows = data?.map((row, rowIndex) => (
     <tr
       className={clsx(
@@ -74,11 +31,13 @@ const Table = <T extends {}>({
       )}
       key={rowIndex}
       style={{ height: rowHeight }}
+      aria-label="Table row"
     >
       {columns.map((col) => (
         <td
           className={styles.bodyCell}
           key={`${col.key || col.dataIndex.toString()}-${rowIndex}`}
+          aria-label="Table cell"
         >
           {col.render ? (
             col.render(row[col.dataIndex], row, rowIndex)
@@ -89,18 +48,6 @@ const Table = <T extends {}>({
       ))}
     </tr>
   ))
-
-  // const handleSortClick = (dataIndex: string) => {
-  //   setSortConfig((prevConfig) => {
-  //     let newDirection = "asc"
-  //     if (prevConfig.dataIndex === dataIndex) {
-  //       newDirection = prevConfig.direction === "asc" ? "desc" : "asc"
-  //     }
-  //     onChangeSort(dataIndex, newDirection)
-
-  //     return { dataIndex, direction: newDirection }
-  //   })
-  // }
 
   return (
     <div className={styles.tableContainer}>
@@ -119,36 +66,15 @@ const Table = <T extends {}>({
           ))}
         </colgroup>
         <thead className={styles.tableHeader}>
-          <tr className={styles.headerRow}>
+          <tr className={styles.headerRow} aria-label="Table header row">
             {columns.map((col) => (
               <th
                 className={styles.headerCell}
                 key={col.key}
-                aria-label={
-                  col.sortable ? "Sortable header cell" : "Header cell"
-                }
+                aria-label="Header cell"
               >
-                <div
-                  className={clsx(
-                    styles.headerCellContent,
-                    col.sortable && styles.sortable
-                  )}
-                  // onClick={() => col.sortable && handleSortClick(col.dataIndex)}
-                >
+                <div className={styles.headerCellContent}>
                   {col.renderHeader ? col.renderHeader(col.title) : col.title}
-                  {col.sortable && (
-                    <div
-                      className={clsx(
-                        styles.sortIcon,
-                        col.dataIndex === sortConfig.dataIndex &&
-                          sortConfig.direction === "asc" &&
-                          styles.asc,
-                        col.dataIndex === sortConfig.dataIndex &&
-                          sortConfig.direction === "desc" &&
-                          styles.desc
-                      )}
-                    ></div>
-                  )}
                 </div>
               </th>
             ))}
@@ -156,7 +82,6 @@ const Table = <T extends {}>({
         </thead>
         <tbody className={styles.tableBody}>{tableRows}</tbody>
       </table>
-      <Pagination/>
     </div>
   )
 }
