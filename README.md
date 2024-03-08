@@ -50,3 +50,9 @@ Alternatively, you can perform steps 3 and 4 in one go by running:
 ```bash
 yarn icons:generate
 ```
+
+## Validations
+
+For data validation purposes, this project utilizes [Zod](https://zod.dev), a TypeScript-first schema declaration and validation library. Zod enables us to efficiently define the shape and constraints of our data models, ensuring the integrity of data throughout our application. By leveraging Zod, we can catch errors early in the development process, streamline our data handling strategies, and maintain a clear and concise definition of our data structures.
+
+To implement Zod in your workflow, refer to the [Zod documentation](https://zod.dev/docs/introduction) for guidance on defining schemas and applying them within your Next.js project.
