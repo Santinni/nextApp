@@ -15,6 +15,7 @@ git clone https://github.com/Santinni/nextApp.git
 cd nextApp
 yarn install
 ```
+
 then checkout to development branch
 
 ```bash
@@ -22,6 +23,7 @@ git checkout development
 ```
 
 To run the development server:
+
 ```bash
 yarn dev
 ```
@@ -46,9 +48,17 @@ In the future, we aim to introduce a UI library showcased in Storybook to enhanc
 
 Stay tuned for updates on the integration of the UI library and Storybook in this project.
 
+## Future Plans
+
+In the future, we aim to introduce a UI library showcased in Storybook to enhance the development experience and provide a comprehensive view of UI components. Currently, we are evaluating Tailwind CSS with DaisyUI and CSS Modules to determine the best approach for our styling needs.
+
+Additionally, we are exploring the possibilities of adopting Turbopack as our build tool. Turbopack represents the next generation of build tools, promising faster rebuild times and more efficient bundling processes, which could significantly improve our development workflow and application performance.
+
+Stay tuned for updates on the integration of the UI library and Storybook in this project, as well as our decision on the adoption of Turbopack.
+
 ## Contributing
 
-We welcome contributions to NextApp. If you have suggestions for improvements or bug fixes, please feel free to fork the repository, make changes, and submit a pull request to the `develop` branch. For more information, please read through our [contribution guidelines](https://github.com/Santinni/nextApp/tree/main/CONTRIBUTING.md).
+We welcome contributions to NextApp. If you have suggestions for improvements or bug fixes, please feel free to fork the repository, make changes, and submit a pull request to the `develop` branch. For more information, please read through our [contribution guidelines](https://github.com/Santinni/nextApp/tree/develop/CONTRIBUTING.md).
 
 ## Learn More
 
