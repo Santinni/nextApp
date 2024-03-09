@@ -1,24 +1,12 @@
 import { NextRequest, NextResponse } from "next/server"
 
+import { prisma } from "@/prisma/client"
+
 import schema from "./schema"
 
-// Get - getting data
-export function GET(request: NextRequest) {
-  // fetch users from db
-  return NextResponse.json([
-    {
-      id: 1,
-      name: "John Doe",
-      username: "johndoe",
-      email: "email",
-    },
-    {
-      id: 2,
-      name: "Jane Doe",
-      username: "janedoe",
-      email: "email",
-    },
-  ])
+export async function GET(request: NextRequest) {
+  const users = await prisma.user.findMany()
+  return NextResponse.json(users)
 }
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
@@ -27,5 +15,24 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   if (!validation.success)
     return NextResponse.json(validation.error.errors, { status: 400 })
 
-  return NextResponse.json({ id: 1, ...body }, { status: 201 })
+  const user = await prisma.user.findUnique({
+    where: { email: body.email },
+  })
+
+  if (user)
+    return NextResponse.json(
+      {
+        error: "User already exists",
+      },
+      { status: 400 }
+    )
+
+  const newUser = await prisma.user.create({
+    data: {
+      name: body.name,
+      email: body.email,
+    },
+  })
+
+  return NextResponse.json(newUser, { status: 201 })
 }

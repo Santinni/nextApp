@@ -1,31 +1,29 @@
 import { NextRequest, NextResponse } from "next/server"
 
+import { prisma } from "@/prisma/client"
+
 import schema from "../schema"
 
 interface Props {
   params: {
-    id: number
+    id: string
   }
 }
 
-export function GET(request: NextRequest, props: Props) {
+export async function GET(request: NextRequest, props: Props) {
   const { id } = props.params
-  if (id > 10)
+  const user = await prisma.user.findUnique({
+    where: { id: parseInt(id) },
+  })
+
+  if (!user)
     return NextResponse.json(
       {
         error: "User not found",
       },
       { status: 404 }
     )
-  return NextResponse.json(
-    {
-      id,
-      name: "John Doe",
-      username: "johndoe",
-      email: "email",
-    },
-    { status: 200 }
-  )
+  return NextResponse.json(user, { status: 200 })
 }
 
 export async function PUT(request: NextRequest, props: Props) {
@@ -35,25 +33,44 @@ export async function PUT(request: NextRequest, props: Props) {
   const validation = schema.safeParse(body)
   if (!validation.success)
     return NextResponse.json(validation.error.errors, { status: 400 })
-  if (id > 10)
+
+  const user = await prisma.user.findUnique({
+    where: { id: parseInt(id) },
+  })
+
+  if (!user)
     return NextResponse.json(
       {
         error: "User not found",
       },
       { status: 404 }
     )
-  return NextResponse.json({ id, ...body })
+  const updatedUser = await prisma.user.update({
+    where: { id: parseInt(id) },
+    data: {
+      name: body.name,
+      email: body.email,
+    },
+  })
+  return NextResponse.json(updatedUser, { status: 200 })
 }
 
 export async function DELETE(request: NextRequest, props: Props) {
   const { id } = props.params
 
-  if (id > 10)
+  const user = await prisma.user.findUnique({
+    where: { id: parseInt(id) },
+  })
+
+  if (!user)
     return NextResponse.json(
       {
         error: "User not found",
       },
       { status: 404 }
     )
+  await prisma.user.delete({
+    where: { id: parseInt(id) },
+  })
   return NextResponse.json({ message: "User deleted" })
 }
