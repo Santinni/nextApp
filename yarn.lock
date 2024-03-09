@@ -384,6 +384,11 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
+"@prisma/client@^5.10.2":
+  version "5.10.2"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-5.10.2.tgz#e087b40a4de8e3171eb9cbf0a873465cd2068e17"
+  integrity sha512-ef49hzB2yJZCvM5gFHMxSFL9KYrIP9udpT5rYo0CsHD4P9IKj473MbhU1gjKKftiwWBTIyrt9jukprzZXazyag==
+
 "@prisma/debug@5.10.2":
   version "5.10.2"
   resolved "https://registry.yarnpkg.com/@prisma/debug/-/debug-5.10.2.tgz#74be81d8969978f4d53c1b4e76d61f04bfbc3951"
@@ -2715,7 +2720,7 @@ prettier@^2.8.7:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.8.tgz#e8c5d7e98a4305ffe3de2e1fc4aca1a71c28b1da"
   integrity sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==
 
-prisma@^5.4.2:
+prisma@^5.10.2:
   version "5.10.2"
   resolved "https://registry.yarnpkg.com/prisma/-/prisma-5.10.2.tgz#aa63085c49dc74cdb5c3816e8dd1fb4d74a2aadd"
   integrity sha512-hqb/JMz9/kymRE25pMWCxkdyhbnIWrq+h7S6WysJpdnCvhstbJSNP/S6mScEcqiB8Qv2F+0R3yG+osRaWqZacQ==
