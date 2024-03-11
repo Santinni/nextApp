@@ -19,6 +19,7 @@ const navLinks = [
   { href: "/users", label: "Users" },
   { href: "/products", label: "Products" },
   { href: "/admin", label: "Admin" },
+  { href: "/upload", label: "Upload" },
 ]
 
 export default function RootLayout({ children }: { children: ReactNode }) {
