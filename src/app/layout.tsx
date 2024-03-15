@@ -7,6 +7,8 @@ import { Inter } from "next/font/google"
 
 import { NavBar } from "@/src/components"
 
+import AuthProvider from "./auth/AuthProvider"
+
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
@@ -26,8 +28,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-theme="winter">
       <body className={inter.className}>
-        <NavBar navLinks={navLinks} ariaLabel="Main" />
-        <main className="p-5"> {children}</main>
+        <AuthProvider>
+          <NavBar navLinks={navLinks} ariaLabel="Main" />
+          <main className="p-5"> {children}</main>
+        </AuthProvider>
       </body>
     </html>
   )
