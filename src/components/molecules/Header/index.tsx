@@ -1,4 +1,7 @@
 "use server"
+// Debug: it is not possible to import ProfileDropdown from "@/src/components"
+// import { NavBar, ProfileDropdown } from "@/src/components"
+
 import { NavBar } from "@/src/components"
 
 import ProfileDropdown from "../ProfileDropdown"
