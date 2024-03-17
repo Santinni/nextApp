@@ -7,6 +7,8 @@ import { Inter } from "next/font/google"
 
 import { Header } from "@/src/components"
 
+import AuthProvider from "./authProvider"
+
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
@@ -18,8 +20,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-theme="winter">
       <body className={inter.className}>
-        <Header />
-        <main className="p-5"> {children}</main>
+        <AuthProvider>
+          <Header />
+          <main className="p-5"> {children}</main>
+        </AuthProvider>
       </body>
     </html>
   )

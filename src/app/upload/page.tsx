@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 
+import { useSession } from "next-auth/react"
 import { CldImage, CldUploadWidget } from "next-cloudinary"
 
 import { Button } from "@/src/components"
@@ -12,6 +13,8 @@ interface CloudinaryResult {
 
 const UploadPage = () => {
   const [publicId, setPublicId] = useState("")
+  const { data: session } = useSession()
+  if (!session || !session.user) return <div>You need to be logged in</div>
   return (
     <>
       {publicId && (
