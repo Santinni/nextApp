@@ -12,13 +12,15 @@ interface UserTableProps {
 const UserTable = async (props: UserTableProps) => {
   const { sortOrder } = props
 
-  const res = await fetch("https://jsonplaceholder.typicode.com/users", {
+  const res = await fetch("http://localhost:3030/api/users", {
     cache: "no-store",
   })
   const data: UserProps[] = await res.json()
   const sortKeyMap: { [key: string]: keyof UserProps } = {
     username: "username",
+    id: "id",
     name: "name",
+    surname: "surname",
     email: "email",
   }
   const sortKey = sortKeyMap[sortOrder] || "name"
@@ -34,10 +36,22 @@ const UserTable = async (props: UserTableProps) => {
       ),
     },
     {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+      renderHeader: () => <Link href="/users?sortOrder=id">ID</Link>,
+    },
+    {
       title: "Name",
       dataIndex: "name",
       key: "name",
       renderHeader: () => <Link href="/users?sortOrder=name">Name</Link>,
+    },
+    {
+      title: "Surname",
+      dataIndex: "surname",
+      key: "surname",
+      renderHeader: () => <Link href="/users?sortOrder=surname">Surname</Link>,
     },
     {
       title: "Email",
@@ -46,16 +60,24 @@ const UserTable = async (props: UserTableProps) => {
       renderHeader: () => <Link href="/users?sortOrder=email">Email</Link>,
     },
     {
-      title: "Address",
-      dataIndex: "address",
-      key: "address",
-      render: (value, record) =>
-        `${record.address.street}, ${record.address.city}`,
+      title: "Registered At",
+      dataIndex: "registeredAt",
+      key: "registeredAt",
     },
     {
-      title: "Phone",
-      dataIndex: "phone",
-      key: "phone",
+      title: "Followers",
+      dataIndex: "followers",
+      key: "followers",
+    },
+    {
+      title: "Active",
+      dataIndex: "isActive",
+      key: "isActive",
+    },
+    {
+      title: "Role",
+      dataIndex: "role",
+      key: "role",
     },
   ]
 
