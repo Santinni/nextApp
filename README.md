@@ -56,3 +56,29 @@ yarn icons:generate
 For data validation purposes, this project utilizes [Zod](https://zod.dev), a TypeScript-first schema declaration and validation library. Zod enables us to efficiently define the shape and constraints of our data models, ensuring the integrity of data throughout our application. By leveraging Zod, we can catch errors early in the development process, streamline our data handling strategies, and maintain a clear and concise definition of our data structures.
 
 To implement Zod in your workflow, refer to the [Zod documentation](https://zod.dev/docs/introduction) for guidance on defining schemas and applying them within your Next.js project.
+
+## Setting Up Environment Variables
+
+For the application to run correctly, it's necessary to configure the environment variables. Within the repository, you will find a `.env.example` file that contains all the required variables either with example values or as empty placeholders for your specific values.
+
+Follow these steps to set up your development environment:
+
+1. Copy the `.env.example` file and rename the copy to `.env`. This `.env` file will contain your local settings and should not be included in the version control system (git).
+
+    ```bash
+    cp .env.example .env
+    ```
+
+2. Open the `.env` file in a text editor and fill in or modify the values of the variables to suit your local development environment. Each variable in the file is accompanied by a comment explaining its purpose and the expected format of its value.
+
+    For example:
+    ```
+    DB_HOST=localhost          # Database host
+    DB_USER=user               # Database user
+    DB_PASS=password           # Database password
+    API_KEY=                   # API key for external services
+    ```
+
+3. After setting all the necessary variables, save the `.env` file and close the editor. The application will now read these environment variables at startup.
+
+**Note:** The `.env` file is already added to the `.gitignore` file, so it will not be included in your git commits. It's important to keep sensitive information, such as passwords or API keys, out of version control systems.
