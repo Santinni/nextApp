@@ -31,6 +31,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     data: {
       name: body.name,
       email: body.email,
+      surname: body.surname,
+      username: body.username,
     },
   })
 

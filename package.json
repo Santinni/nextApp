@@ -9,7 +9,7 @@
     "lint": "next lint",
     "preview-email": "email dev -p 4000",
     "icons:list": "node scripts/listfiles.js ./src/assets/icons \"**/*.svg;!**/leftovers\" files.json",
-    "icons:convert": "svgr --typescript --icon --replace-attr-values \"#393939=currentColor, #ACAEB0=currentColor\" -d src/components/icons src/assets/icons",
+    "icons:convert": "svgr --typescript --icon --replace-attr-values \"#83868a=currentColor, #393939=currentColor, #ACAEB0=currentColor, #000000=currentColor\" -d src/components/icons src/assets/icons",
     "posticons:convert": "node scripts/listfiles.js ./src/components/icons \"**/*.tsx\" files.json",
     "icons:generate": "npm run icons:list && npm run icons:convert"
   },
@@ -25,6 +25,7 @@
     "eslint-config-next": "14.1.0",
     "fast-sort": "^3.4.0",
     "next": "14.1.0",
+    "next-auth": "^5.0.0-beta.15",
     "next-cloudinary": "^6.2.1",
     "postcss": "8.4.35",
     "prisma": "^5.10.2",

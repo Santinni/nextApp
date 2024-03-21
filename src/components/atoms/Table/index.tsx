@@ -2,6 +2,7 @@ import { ReactNode } from "react"
 
 import clsx from "clsx"
 
+import { Cloud } from "../../icons"
 import styles from "./styles.module.css"
 
 export interface Column<T extends {}> {
@@ -23,31 +24,42 @@ export interface TableProps<T extends {}> {
 }
 
 const Table = <T extends {}>({ columns, data, rowHeight }: TableProps<T>) => {
-  const tableRows = data?.map((row, rowIndex) => (
-    <tr
-      className={clsx(
-        styles.bodyRow,
-        rowIndex % 2 === 0 ? styles.evenRow : styles.oddRow
-      )}
-      key={rowIndex}
-      style={{ height: rowHeight }}
-      aria-label="Table row"
-    >
-      {columns.map((col) => (
-        <td
-          className={styles.bodyCell}
-          key={`${col.key || col.dataIndex.toString()}-${rowIndex}`}
-          aria-label="Table cell"
-        >
-          {col.render ? (
-            col.render(row[col.dataIndex], row, rowIndex)
-          ) : (
-            <>{row[col.dataIndex] !== undefined ? row[col.dataIndex] : ""}</>
-          )}
-        </td>
-      ))}
+  const tableRows = data.length ? (
+    data.map((row, rowIndex) => (
+      <tr
+        className={clsx(
+          styles.bodyRow,
+          rowIndex % 2 === 0 ? styles.evenRow : styles.oddRow
+        )}
+        key={rowIndex}
+        style={{ height: rowHeight }}
+        aria-label="Table row"
+      >
+        {columns.map((col) => (
+          <td
+            className={styles.bodyCell}
+            key={`${col.key || col.dataIndex.toString()}-${rowIndex}`}
+            aria-label="Table cell"
+          >
+            {col.render ? (
+              col.render(row[col.dataIndex], row, rowIndex)
+            ) : (
+              <>{row[col.dataIndex] !== undefined ? row[col.dataIndex] : ""}</>
+            )}
+          </td>
+        ))}
+      </tr>
+    ))
+  ) : (
+    <tr>
+      <td colSpan={columns.length}>
+        <div className={styles.noData}>
+          <Cloud className={styles.noDataIcon} />
+          <span>No data to display</span>
+        </div>
+      </td>
     </tr>
-  ))
+  )
 
   return (
     <div className={styles.tableContainer}>

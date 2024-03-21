@@ -85,6 +85,27 @@
     hyphens: auto;
 }
 
+.noDataIcon {
+    color: #999;
+    height: 48px;
+    width: auto;
+}
+
+.noDataIcon path {
+    fill: #999;
+}
+
+.noData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: #999;
+}
+
 @media all and (max-width: 768px) {
     .headerCell,
     .bodyCell {

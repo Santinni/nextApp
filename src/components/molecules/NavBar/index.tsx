@@ -13,15 +13,21 @@ export interface NavBarProps {
   }[]
   isVertical?: boolean
   ariaLabel: string
+  className?: string
 }
 
-const NavBar: FC<NavBarProps> = ({ navLinks, isVertical, ariaLabel }) => {
+const NavBar: FC<NavBarProps> = ({
+  navLinks,
+  isVertical,
+  ariaLabel,
+  className,
+}) => {
   const pathname = usePathname()
 
   return (
     <nav
       aria-label={ariaLabel}
-      className={clsx("flex bg-slate-200 p-5 gap-5", isVertical && "flex-col")}
+      className={clsx("flex gap-5", isVertical && "flex-col", className)}
     >
       {navLinks.map((navLink) => {
         const isActive =
@@ -32,7 +38,10 @@ const NavBar: FC<NavBarProps> = ({ navLinks, isVertical, ariaLabel }) => {
           <Link
             key={navLink.href}
             href={navLink.href}
-            className={isActive ? "font-bold" : undefined}
+            className={clsx(
+              "flex items-center justify-center",
+              isActive ? "font-bold" : undefined
+            )}
           >
             {navLink.label}
           </Link>
