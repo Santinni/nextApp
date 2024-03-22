@@ -1,11 +1,9 @@
 import { Suspense } from "react"
 
 import Link from "next/link"
+import { Metadata } from "next/types"
 
-import {
-  Loading,
-  UserTable,
-} from "@/src/components"
+import { Loading, UserTable } from "@/src/components"
 
 interface UsersPageProps {
   searchParams: {
@@ -31,3 +29,9 @@ const UsersPage = (props: UsersPageProps) => {
 }
 
 export default UsersPage
+
+export const metadata: Metadata = {
+  title: "Users",
+  description: "Users",
+  keywords: "Users",
+}

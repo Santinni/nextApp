@@ -9,6 +9,7 @@
     "ChevronRight.tsx",
     "ChevronUp.tsx",
     "Close.tsx",
-    "Cloud.tsx"
+    "Cloud.tsx",
+    "User.tsx"
   ]
 }
